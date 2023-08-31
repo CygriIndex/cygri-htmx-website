@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/cygri.svg" />
+    <title>Cygri Index</title>
+</head>
+
+<body>
+    <style>
+        * {
+            color: aliceblue;
+            margin: auto;
+            text-align: center;
+            font-size: xx-large;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #e612df, #e73c7e, #0e923f, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+
+        #title {
+            padding-top: 10%;
+            font-weight: bolder;
+            max-width: fit-content;
+
+        }
+
+        button {
+            background: linear-gradient(45deg, #e612df, #e73c7e, #0e923f, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+    </style>
+    <p id="title">Cygri Index</p>
+    Contact: <a href="mailto:info@cygri.com">info@cygri.com</a>
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <br>
+    <button hx-get="/confirmed" hx-on:htmx:before-request="Swal.fire({
+        title: 'Kångratz!',
+        text: 'You clicked a button :D',
+        toast: true,
+        confirmButtonText: 'Cool'})">
+        Click Me
+    </button>
+</body>
+
+</html>
